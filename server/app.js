@@ -83,9 +83,4 @@ app.get(
   }
 );
 
-// Middleware for handling 404 errors
-app.use(function (_, _, next) {
-  next(createError(404)); // Forward 404 error to error handler
-});
-
 module.exports = app; // Export the express app
