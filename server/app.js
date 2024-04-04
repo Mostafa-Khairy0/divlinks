@@ -43,17 +43,6 @@ app.post(
     } = req;
     const { firstName, lastName, email, github, youtube, linkedin } = req.body;
 
-    // Validate data and add new profile
-    profiles.push({
-      id: uuid(),
-      firstName,
-      lastName,
-      email,
-      github,
-      youtube,
-      linkedin,
-      image,
-    });
     if (
       !(
         firstName &&
@@ -66,8 +55,20 @@ app.post(
       )
     )
       createError(401); // Unauthorized if required data is missing
+    const profile = {
+      id: uuid(),
+      firstName,
+      lastName,
+      email,
+      github,
+      youtube,
+      linkedin,
+      image,
+    };
+    // Validate data and add new profile
+    profiles.push(profile);
     file.save(); // Save changes to JSON file
-    res.json({ id: "hello" }); // Respond with success message
+    res.json({ profile }); // Respond with success message
   }
 );
 
