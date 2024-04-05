@@ -24,15 +24,21 @@ const ProfileForm = ({
           className={style.inputImage}
           onClick={() => inputRef.current?.click()}
         >
-          <img src={profile?.image ?? "/user.png"} alt="imge" ref={imageRef} />
+          <img
+            src={
+              profile?.image ? URL.createObjectURL(profile?.image) : "/user.png"
+            }
+            alt="imge"
+            ref={imageRef}
+          />
           <input
             type="file"
             accept="image/*"
             ref={inputRef}
             onChange={({ target: { files } }) => {
-              const image = URL.createObjectURL((files ?? [])[0]);
-              //@ts-expect-error never equal null
-              imageRef.current.src = image;
+              const image = (files ?? [])[0];
+              // @ts-expect-error never equal null
+              imageRef.current.src = URL.createObjectURL(image);
               setProfile((profile) => ({ ...profile, image }));
               setSelectImage(false);
             }}

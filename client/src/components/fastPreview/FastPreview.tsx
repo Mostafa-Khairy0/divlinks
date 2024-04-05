@@ -8,13 +8,14 @@ const capitalize = (word: string): string => {
   return capitale;
 };
 const FastPreview = ({ profile }: { profile: Profile }) => {
-  // console.log({ profile });
   const links = [0, 1, 2, 3, 4];
   return (
     <div className={style.container}>
       <div className={style.preview}>
         <div className={style.image}>
-          {profile?.image && <img src={profile?.image} alt="user" />}
+          {profile?.image && (
+            <img src={URL.createObjectURL(profile?.image)} alt="user" />
+          )}
         </div>
         <div
           className={`${style.name} ${

@@ -35,10 +35,10 @@ app.post(
     const {
       file: { filename: image },
     } = req;
-    const { firstName, lastName, email, links } = req.body;
+    let { firstName, lastName, email, links } = req.body;
 
     if (!(firstName && lastName && email && links && image)) createError(401);
-    links = links?.filter((link) => link?.url > 0);
+    links = JSON.parse(links)?.filter((link) => link?.url?.length > 0);
     const profile = {
       id: uuid(),
       firstName,

@@ -7,7 +7,6 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" Component={() => <Home />} />
-        <Route path="/preview/:profileId" Component={() => <Profile />} />
         <Route path="/profile/:profileId" Component={() => <Profile />} />
       </Routes>
     </Router>

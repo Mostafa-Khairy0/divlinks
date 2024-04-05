@@ -2,20 +2,22 @@ import axios from "axios";
 import type { Profile } from "../types/profile";
 
 export const profilesHandler = axios.create({
-  baseURL: "https://divlinks.onrender.com",
+  //   baseURL: "https://divlinks.onrender.com",
+  baseURL: "http://localhost:3000",
 });
 
-export const setProfile = async (profile: Profile): Promise<string> | never => {
+export const setProfile = async (
+  profile: Profile
+): Promise<{ id: string }> | never => {
   try {
     const formData = new FormData();
     formData.append("image", profile.image ?? "");
-    formData.append("image", profile.firstName ?? "");
-    formData.append("image", profile.lastName ?? "");
-    formData.append("image", profile.email ?? "");
-    formData.append("image", JSON.stringify(profile.links));
+    formData.append("firstName", profile.firstName ?? "");
+    formData.append("lastName", profile.lastName ?? "");
+    formData.append("email", profile.email ?? "");
+    formData.append("links", JSON.stringify(profile.links));
 
     const res = await profilesHandler.post("/profiles", formData);
-    console.log({ res });
     return res.data;
   } catch (error) {
     console.error(error);
