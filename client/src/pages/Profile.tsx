@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getProfile } from "../api/profileshandler";
 import { Profile } from "../types/profile";
 
-const server = "http://localhost:3000";
+const server = "https://divlinks.onrender.com";
 const capitalize = (word: string): string => {
   let capitale = "";
   capitale += word[0].toUpperCase();

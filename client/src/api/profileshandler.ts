@@ -2,8 +2,7 @@ import axios from "axios";
 import type { Profile } from "../types/profile";
 
 export const profilesHandler = axios.create({
-  //   baseURL: "https://divlinks.onrender.com",
-  baseURL: "http://localhost:3000",
+  baseURL: "https://divlinks.onrender.com",
 });
 
 export const setProfile = async (

@@ -2,7 +2,6 @@ import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import style from "./style.module.css";
 import { Profile } from "../../types/profile";
 import { setProfile } from "../../api/profileshandler";
-import { useNavigate } from "react-router-dom";
 const Header = ({
   isLinksActive,
   setLinkActive,
@@ -13,7 +12,6 @@ const Header = ({
   profile: Profile;
 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
