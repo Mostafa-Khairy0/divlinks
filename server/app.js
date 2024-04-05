@@ -41,28 +41,16 @@ app.post(
     const {
       file: { filename: image },
     } = req;
-    const { firstName, lastName, email, github, youtube, linkedin } = req.body;
+    const { firstName, lastName, email, links } = req.body;
 
-    if (
-      !(
-        firstName &&
-        lastName &&
-        email &&
-        github &&
-        youtube &&
-        linkedin &&
-        image
-      )
-    )
-      createError(401); // Unauthorized if required data is missing
+    if (!(firstName && lastName && email && links && image)) createError(401); // Unauthorized if required data is missing
+    links = links?.filter((link) => link?.url > 0);
     const profile = {
       id: uuid(),
       firstName,
       lastName,
       email,
-      github,
-      youtube,
-      linkedin,
+      links,
       image,
     };
     // Validate data and add new profile
