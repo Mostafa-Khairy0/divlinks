@@ -1,12 +1,14 @@
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
+var cors = require("cors");
 
 var app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -47,7 +49,7 @@ app.post(
     };
     profiles.push(profile);
     file.save();
-    res.json({ profile });
+    res.json({ id: profile.id });
   }
 );
 

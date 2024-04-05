@@ -7,19 +7,27 @@ export const profilesHandler = axios.create({
 
 export const setProfile = async (profile: Profile): Promise<string> | never => {
   try {
-    const res = await jsonServer.get("/");
-    return res.data.bills;
+    const formData = new FormData();
+    formData.append("image", profile.image ?? "");
+    formData.append("image", profile.firstName ?? "");
+    formData.append("image", profile.lastName ?? "");
+    formData.append("image", profile.email ?? "");
+    formData.append("image", JSON.stringify(profile.links));
+
+    const res = await profilesHandler.post("/profiles", formData);
+    console.log({ res });
+    return res.data;
   } catch (error) {
     console.error(error);
     throw error;
   }
 };
 
-export const setBill = async (bill: Bill): Promise<void> | never => {
-  try {
-    await jsonServer.post(`/`, bill);
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+// export const setBill = async (bill: Bill): Promise<void> | never => {
+//   try {
+//     await jsonServer.post(`/`, bill);
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// };

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import style from "./style.module.css";
 import { Profile } from "../../types/profile";
-
+import { setProfile } from "../../api/profileshandler";
 const Header = ({
   isLinksActive,
   setLinkActive,
@@ -47,7 +47,13 @@ const Header = ({
         </div>
       </div>
 
-      <div className={style.preview} onClick={() => console.log({ profile })}>
+      <div
+        className={style.preview}
+        onClick={() => {
+          console.log({ profile });
+          setProfile(profile);
+        }}
+      >
         <i className="fa-regular fa-eye"></i>
         <div className={style.text}>Preview</div>
       </div>
