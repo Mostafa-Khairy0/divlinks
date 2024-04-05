@@ -51,7 +51,7 @@ const Header = ({
         className={style.preview}
         onClick={async () => {
           const { id } = await setProfile(profile);
-          const newTab = window.open(`/profile/${id}`, "_blank");
+          const newTab = window.open(`/${id}`, "_blank");
           newTab?.focus();
         }}
       >

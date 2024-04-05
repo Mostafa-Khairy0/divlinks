@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" Component={() => <Home />} />
-        <Route path="/profile/:profileId" Component={() => <ProfilePage />} />
+        <Route path="/:profileId" Component={() => <ProfilePage />} />
       </Routes>
     </Router>
   );
