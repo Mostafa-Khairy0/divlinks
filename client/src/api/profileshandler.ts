@@ -25,11 +25,14 @@ export const setProfile = async (
   }
 };
 
-// export const setBill = async (bill: Bill): Promise<void> | never => {
-//   try {
-//     await jsonServer.post(`/`, bill);
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// };
+export const getProfile = async (
+  profileId: string
+): Promise<Profile> | never => {
+  try {
+    const res = await profilesHandler.get(`/profiles/${profileId}`);
+    return res.data.profile;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

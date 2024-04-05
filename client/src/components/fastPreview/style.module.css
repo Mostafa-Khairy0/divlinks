@@ -35,6 +35,7 @@
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
+  border: solid 2.5px var(--deep-blue);
 }
 .name {
   width: 60%;

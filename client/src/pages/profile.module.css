@@ -1,0 +1,80 @@
+.container {
+  width: 100%;
+  min-width: 100vw;
+  height: 100%;
+  min-height: 100vh;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container::before {
+  position: absolute;
+  height: 35%;
+  width: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  background-color: var(--deep-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 40px 40px;
+}
+.preview {
+  width: 260px;
+  aspect-ratio: 0.55;
+  background-color: white;
+  padding: 10px;
+  z-index: 2;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.image{
+    width: 45%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border-radius: s;
+}
+.name{
+    font-size: 20px;
+    font-weight: 800;
+    color: rgb(70, 70, 70);
+}
+.email{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(120, 120, 120);
+}
+.links{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.link{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+}
+a{
+    color: white;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

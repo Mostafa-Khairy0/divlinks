@@ -53,15 +53,11 @@ app.post(
   }
 );
 
-app.get(
-  "/profiles/:id",
-  upload.single("image", { mimetype: "image/*" }),
-  (req, res) => {
-    const { id } = req.params;
-    const profile = profiles.find((profile) => profile.id == id);
-    if (profile) res.json({ profile });
-    else createError(404);
-  }
-);
+app.get("/profiles/:id", (req, res) => {
+  const { id } = req.params;
+  const profile = profiles.find((profile) => profile.id == id);
+  if (profile) res.json({ profile });
+  else createError(404);
+});
 
 module.exports = app;
