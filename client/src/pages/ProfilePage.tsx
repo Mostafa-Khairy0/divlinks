@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import style from "./profile.module.css";
 import { useParams } from "react-router-dom";
 import { getProfile } from "../api/profileshandler";
-import { Profile } from "../types/profile";
+import type { Profile } from "../types/profile";
 
 const server = "https://divlinks.onrender.com";
 const capitalize = (word: string): string => {
